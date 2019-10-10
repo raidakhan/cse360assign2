@@ -22,6 +22,7 @@ package cse360assign2;
 public class AddingMachine {
 
 	private int total;
+	private String str = "0"; // keeps track of the string concatenation
 
 	/**
 	 * Default class constructor takes in no parameters and initializes the private
@@ -34,41 +35,53 @@ public class AddingMachine {
 	}
 
 	/**
-	 * getTotal method which returns an integer total
-	 *@return integer value for total
+	 * getTotal method which returns the total of all the operations performed
+	 * 
+	 * @return integer value for total
 	 */
 	public int getTotal() {
-		return 0;
+		return total;
 	}
 
 	/**
-	 * add(int x) method that takes in an integer value and adds it to the total.
-	 * does not return anything
+	 * add(int value) method that takes in an integer value and adds it to the total.
+	 * method does not return anything but concatenates value to str variable (used
+	 * in toString method)
 	 */
 	public void add(int value) {
+		total += value;
+		str = str + " + " + Integer.toString(value);
 
 	}
 
 	/**
-	 * subtract(int x) method that takes in an integer value and subtracts it from
-	 * the total. does not return anything
+	 * subtract(int value) method that takes in an integer value and subtracts it from
+	 * the total. method does not return anything but concatenates value to str
+	 * variable (used in toString method)
 	 */
 	public void subtract(int value) {
+		total -= value;
+
+		str = str + " - " + Integer.toString(value);
 
 	}
 
 	/**
 	 * toString() method that returns a string value
-	 *@return a String value
+	 * 
+	 * @return a String value with a history of the operations performed
 	 */
 	public String toString() {
-		return "";
+		return str;
+
 	}
 
 	/**
-	 * clear() method that clears the total
+	 * clear() method that clears the total. functionality not specified in the
+	 * assignment instructions.
 	 *
 	 */
 	public void clear() {
+		total = 0;
 	}
 }
